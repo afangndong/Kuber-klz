@@ -1,0 +1,32 @@
+node {
+    def app
+
+    stage('Clone repository'){
+
+        checkout SCM
+    }
+
+    stage('Build image'){
+
+        app = docker.build("afangndong/test-app-1")
+    }
+
+    stage('Test image'){
+
+        app.inside {
+            sh 'echo "Tests passed'
+        }
+    }
+
+    stage('Push image'){
+
+        docker.withRegistry('registry.hub.docker.com', 'dockerhub') {
+            app.push("${env.BUILD_NUMBER}")
+        }
+    }
+
+    stage('Trigger ManifestUpdate'){
+        echo "Triggering updatemanifestjob"
+        build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+    }
+}

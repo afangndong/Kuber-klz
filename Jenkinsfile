@@ -14,13 +14,13 @@ node {
     stage('Test image'){
 
         app.inside {
-            sh 'echo "Tests passed'
+            sh 'echo "Tests passed"'
         }
     }
 
     stage('Push image'){
 
-        docker.withRegistry('registry.hub.docker.com', 'dockerhub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("${env.BUILD_NUMBER}")
         }
     }

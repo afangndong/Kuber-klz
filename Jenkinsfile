@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository'){
 
-        checkout SCM
+        checkout scm
     }
 
     stage('Build image'){

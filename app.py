@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Please Suscribe to my Infos News to know what i'm doing'
+    return 'Please Suscribe to my Infos News to know what i doing'

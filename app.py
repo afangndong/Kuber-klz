@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Please Suscribe to my Infos News to know what i doing'
+    return 'PBonjour je rencontre bcp de probleme pour deployer avec ArgoCD'

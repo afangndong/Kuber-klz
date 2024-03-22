@@ -27,6 +27,6 @@ node {
 
     stage('Trigger ManifestUpdate'){
         echo "Triggering updatemanifestjob"
-        build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+        build job: 'Kuber-klz-Updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
     }
 }
